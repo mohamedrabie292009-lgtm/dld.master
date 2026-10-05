@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DLD MASTER | Luxury Real Estate Dubai</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #c5a059;
+      --gold-light: #dfba73;
+      --dark-primary: #0a0a0c;
+      --dark-secondary: #141418;
+      --dark-card: #1c1c22;
+      --border-color: rgba(197, 160, 89, 0.25);
+      --text-main: #f5f5f7;
+      --text-muted: #9e9ea7;
+      --whatsapp: #25d366;
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+    body { background-color: var(--dark-primary); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+
+    /* Top luxury bar */
+    .top-bar {
+      background: #050507;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.5rem 1.5rem;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a { color: var(--text-muted); text-decoration: none; transition: var(--transition); }
+    .top-bar a:hover { color: var(--gold); }
+    .founder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 12, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    nav {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .logo-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo-title span { color: var(--gold); }
+    .logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #000 !important;
+      font-weight: 700;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    .btn-gold:hover {
+      box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Page Sections */
+    .page-section {
+      display: none;
+      min-height: calc(100vh - 160px);
+    }
+    .page-section.active { display: block; animation: fadeIn 0.4s ease forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      background: linear-gradient(rgba(10, 10, 12, 0.6), rgba(10, 10, 12, 0.9)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .hero-content {
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #cfcfd4;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    /* Properties Grid */
+    .container {
+      max-width: 1300px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .section-sub {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+      background: var(--dark-card);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-main);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .property-card {
+      background: var(--dark-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 15px rgba(197, 160, 89, 0.2);
+    }
+    .card-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .property-card:hover .card-img {
+      transform: scale(1.08);
+    }
+    .card-type-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 10, 12, 0.85);
+      color: var(--gold-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      text-transform: uppercase;
+    }
+    .card-price-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: var(--gold);
+      color: #000;
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .card-body {
+      padding: 1.4rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-location {
+      color: var(--gold);
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .card-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      background: rgba(255,255,255,0.03);
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .card-specs span strong {
+      color: #fff;
+    }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-wa {
+      flex: 1;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid var(--whatsapp);
+      color: var(--whatsapp);
+      padding: 0.6rem;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-wa:hover {
+      background: var(--whatsapp);
+      color: #000;
+    }
+
+    /* Sales Submission Form Portal */
+    .form-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--dark-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      background: #111116;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+    }
+
+    /* Counter Controls */
+    .counter-control {
+      display: flex;
+      align-items: center;
+      background: #111116;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .counter-btn {
+      background: rgba(255,255,255,0.05);
+      border: none;
+      color: #fff;
+      width: 45px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    .counter-btn:hover { background: var(--gold); color: #000; }
+    .counter-value {
+      flex: 1;
+      text-align: center;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Founder / Contact Section */
+    .profile-card {
+      background: linear-gradient(145deg, #18181f, #0d0d10);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2.5rem;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .profile-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: var(--gold);
+      background: rgba(197, 160, 89, 0.08);
+      box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
+    }
+    .profile-details h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .profile-details p.role {
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.6rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .contact-item i { color: var(--gold); width: 20px; }
+    .contact-item a { color: #fff; text-decoration: none; transition: var(--transition); }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      background: #050507;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer strong { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+      .profile-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Info Strip -->
+  <div class="top-bar">
+    <div class="founder-badge">
+      <i class="fas fa-crown"></i> Principal: <strong>Mahmoud Rabie</strong>
+    </div>
+    <div style="display: flex; gap: 15px;">
+      <a href="tel:+971542955112"><i class="fas fa-phone-alt"></i> +971 54 295 5112</a>
+      <a href="mailto:dld.master.dubai@gmail.com"><i class="fas fa-envelope"></i> dld.master.dubai@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" onclick="showPage('home')" class="logo-container">
+        <div class="logo-title">DLD <span>MASTER</span></div>
+        <div class="logo-sub">Dubai Luxury Properties</div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+        <li><a onclick="showPage('properties')" id="nav-properties">Properties</a></li>
+        <li><a onclick="showPage('sales-portal')" id="nav-sales">Sales Portal (Add Property)</a></li>
+        <li><a onclick="showPage('contact')" id="nav-contact">Contact & Founder</a></li>
+      </ul>
+
+      <button onclick="showPage('sales-portal')" class="btn-gold">
+        <i class="fas fa-plus-circle"></i> Add Listing
+      </button>
+    </nav>
+  </header>
+
+  <!-- PAGE 1: HOME -->
+  <section id="page-home" class="page-section active">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Dubai Land Department Verified Experts</div>
+        <h1>Elevating Luxury Living in Dubai</h1>
+        <p>Explore premium apartments, commercial buildings, residential districts, and high-yield plots across the most prestigious addresses in Dubai.</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <button onclick="showPage('properties')" class="btn-gold">View Exclusive Listings</button>
+          <button onclick="showPage('contact')" class="btn-gold" style="background: transparent; color: #fff !important; border: 1px solid var(--gold);">Contact Principal</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="section-title">Prime Investment Destinations</h2>
+      <p class="section-sub">Strategically Located Across the UAE</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fas fa-city" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
+          <h3>Downtown Dubai</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Home of iconic towers, luxury residential penthouses, and high capital appreciation.</p>
+        </div>
+        <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fas fa-water" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
+          <h3>Palm Jumeirah</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Ultra-prime waterfront mansions, beachfront apartments, and private community plots.</p>
+        </div>
+        <div style="background: var(--dark-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;"></i>
+          <h3>Business Bay</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">Commercial hubs, entire office buildings, and high-rental yield apartments along the Dubai Canal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: PROPERTIES -->
+  <section id="page-properties" class="page-section">
+    <div class="container">
+      <h2 class="section-title">Curated Real Estate Portfolio</h2>
+      <p class="section-sub">Explore Apartments, Plots, Entire Buildings & Communities</p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProperties('all')">All Properties</button>
+        <button class="filter-btn" onclick="filterProperties('Apartment')">Apartments</button>
+        <button class="filter-btn" onclick="filterProperties('Plot / Land')">Lands & Plots</button>
+        <button class="filter-btn" onclick="filterProperties('Building')">Entire Buildings</button>
+        <button class="filter-btn" onclick="filterProperties('Residential District')">Residential Districts</button>
+      </div>
+
+      <div class="properties-grid" id="propertiesList"></div>
+    </div>
+  </section>
+
+  <!-- PAGE 3: SALES PORTAL (ADD LISTING) -->
+  <section id="page-sales-portal" class="page-section">
+    <div class="container">
+      <h2 class="section-title">Sales Management Portal</h2>
+      <p class="section-sub">Add & Configure New Real Estate Assets in Dubai</p>
+
+      <div class="form-container">
+        <form id="propertyForm" onsubmit="handleNewProperty(event)">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label><i class="fas fa-tag"></i> Property Type</label>
+              <select id="propType" required>
+                <option value="Apartment">Apartment (شقة)</option>
+                <option value="Plot / Land">Land / Plot (أرض / قطعة أرض)</option>
+                <option value="Building">Full Building (مبنى بالكامل)</option>
+                <option value="Residential District">Residential District (منطقة سكنية / مجمع)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-heading"></i> Property Title</label>
+              <input type="text" id="propTitle" placeholder="e.g. Marina View Luxury 3BHK" required />
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-map-marker-alt"></i> Location in Dubai</label>
+              <input type="text" id="propLocation" placeholder="e.g. Downtown Dubai, Business Bay" required />
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-coins"></i> Price (AED)</label>
+              <input type="number" id="propPrice" placeholder="e.g. 2,800,000" required />
+            </div>
+          </div>
+
+          <!-- Area Metrics: Sq.Ft and GPA -->
+          <div class="form-grid">
+            <div class="form-group">
+              <label><i class="fas fa-ruler-combined"></i> Built-up / Unit Area (Sq.Ft)</label>
+              <input type="number" id="propSqFt" placeholder="e.g. 1850 Sq.Ft" required />
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-vector-square"></i> Gross Plot Area (GPA / Plot Sq.Ft)</label>
+              <input type="number" id="propGpa" placeholder="e.g. 4500 GPA" />
+            </div>
+          </div>
+
+          <!-- Rooms, Bathrooms, Kitchens (0 to 5+) -->
+          <div class="form-grid">
+            <div class="form-group">
+              <label><i class="fas fa-bed"></i> Bedrooms (غرف النوم)</label>
+              <div class="counter-control">
+                <button type="button" class="counter-btn" onclick="updateCounter('bedrooms', -1)">-</button>
+                <span class="counter-value" id="val-bedrooms">2</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('bedrooms', 1)">+</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-bath"></i> Bathrooms (الحمامات)</label>
+              <div class="counter-control">
+                <button type="button" class="counter-btn" onclick="updateCounter('bathrooms', -1)">-</button>
+                <span class="counter-value" id="val-bathrooms">2</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('bathrooms', 1)">+</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-utensils"></i> Kitchens (المطبخ)</label>
+              <div class="counter-control">
+                <button type="button" class="counter-btn" onclick="updateCounter('kitchens', -1)">-</button>
+                <span class="counter-value" id="val-kitchens">1</span>
+                <button type="button" class="counter-btn" onclick="updateCounter('kitchens', 1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label><i class="fas fa-image"></i> Image URL (Optional - or leave blank for default)</label>
+            <input type="url" id="propImage" placeholder="https://images.unsplash.com/..." />
+          </div>
+
+          <div class="form-group" style="margin-bottom: 2rem;">
+            <label><i class="fas fa-align-left"></i> Description & Payment Plan</label>
+            <textarea id="propDesc" rows="3" placeholder="Handover date, DLD registration perks, payment schedules..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; padding: 1rem; font-size: 0.95rem;">
+            <i class="fas fa-upload"></i> Publish Property Instantly
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: CONTACT & FOUNDER -->
+  <section id="page-contact" class="page-section">
+    <div class="container">
+      <h2 class="section-title">Leadership & Inquiries</h2>
+      <p class="section-sub">Direct Channel with the Founder & Exclusive Advisory</p>
+
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="profile-details">
+          <h2>Mahmoud Rabie</h2>
+          <p class="role">Founder & Managing Director | DLD MASTER Real Estate Dubai</p>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>Direct Call / Phone:</span>
+            <a href="tel:+971542955112"><strong>+971 54 295 5112</strong></a>
+          </div>
+
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>Official WhatsApp:</span>
+            <a href="https://wa.me/971542955112" target="_blank"><strong>+971 54 295 5112 (Chat Now)</strong></a>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>Corporate Email:</span>
+            <a href="mailto:dld.master.dubai@gmail.com"><strong>dld.master.dubai@gmail.com</strong></a>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Headquarters:</span>
+            <span>Business Bay, Downtown Corridor, Dubai, United Arab Emirates</span>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="https://wa.me/971542955112?text=Hello%20Mr.%20Mahmoud%20Rabie,%20I%20am%20inquiring%20about%20DLD%20MASTER%20exclusive%20properties." target="_blank" class="btn-gold">
+              <i class="fab fa-whatsapp"></i> Direct WhatsApp With Mr. Mahmoud Rabie
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 <strong>DLD MASTER Real Estate</strong>. Managed & Supervised by <strong>Mahmoud Rabie</strong>. All rights reserved.</p>
+    <p style="margin-top: 6px;">Dubai, United Arab Emirates | Tel: +971 54 295 5112 | Email: dld.master.dubai@gmail.com</p>
+  </footer>
+
+  <script>
+    // Initial Seed Properties
+    const initialProperties = [
+      {
+        id: 1,
+        type: "Apartment",
+        title: "Sky View Luxury Penthouse",
+        location: "Downtown Dubai",
+        price: 4500000,
+        sqft: 2450,
+        gpa: 2800,
+        bedrooms: 3,
+        bathrooms: 4,
+        kitchens: 1,
+        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=700&q=80",
+        desc: "Full Burj Khalifa view, smart home automation, private elevator access."
+      },
+      {
+        id: 2,
+        type: "Plot / Land",
+        title: "Prime Beachfront Residential Plot",
+        location: "Palm Jumeirah",
+        price: 22000000,
+        sqft: 12000,
+        gpa: 15500,
+        bedrooms: 0,
+        bathrooms: 0,
+        kitchens: 0,
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80",
+        desc: "Exclusive G+2 villa permission with private beach allotment."
+      },
+      {
+        id: 3,
+        type: "Building",
+        title: "Commercial Grade-A Tower",
+        location: "Business Bay",
+        price: 85000000,
+        sqft: 65000,
+        gpa: 48000,
+        bedrooms: 0,
+        bathrooms: 5,
+        kitchens: 2,
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80",
+        desc: "Fully leased commercial asset generating 8.5% net ROI annually."
+      },
+      {
+        id: 4,
+        type: "Residential District",
+        title: "Green Reserve Master Community",
+        location: "Dubai Hills Estate",
+        price: 135000000,
+        sqft: 180000,
+        gpa: 220000,
+        bedrooms: 5,
+        bathrooms: 5,
+        kitchens: 3,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80",
+        desc: "Complete gated compound consisting of 24 signature contemporary villas."
+      }
+    ];
+
+    // Local Storage Management
+    function getStoredProperties() {
+      const data = localStorage.getItem('dld_master_properties');
+      return data ? JSON.parse(data) : initialProperties;
+    }
+
+    function saveProperties(properties) {
+      localStorage.setItem('dld_master_properties', JSON.stringify(properties));
+    }
+
+    let currentProperties = getStoredProperties();
+    let counters = { bedrooms: 2, bathrooms: 2, kitchens: 1 };
+
+    // Counter helper
+    function updateCounter(type, delta) {
+      let current = counters[type] + delta;
+      if (current < 0) current = 0;
+      if (current > 5) current = 5; // Supports 0 to 5+
+      counters[type] = current;
+      document.getElementById(`val-${type}`).innerText = current;
+    }
+
+    // Navigation Switcher
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
+      const targetPage = document.getElementById(`page-${pageId}`);
+      if (targetPage) targetPage.classList.add('active');
+
+      const targetNav = document.getElementById(`nav-${pageId}`);
+      if (targetNav) targetNav.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (pageId === 'properties') {
+        renderProperties(currentProperties);
+      }
+    }
+
+    // Render Properties
+    function renderProperties(list) {
+      const container = document.getElementById('propertiesList');
+      if (list.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem;">No properties found in this category.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <div class="property-card">
+          <div class="card-img-wrap">
+            <img src="${item.image || 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=700&q=80'}" class="card-img" alt="${item.title}">
+            <div class="card-type-tag">${item.type}</div>
+            <div class="card-price-tag">${Number(item.price).toLocaleString()} AED</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-location"><i class="fas fa-map-marker-alt"></i> ${item.location}</div>
+              <h3 class="card-title">${item.title}</h3>
+              
+              <div class="card-specs">
+                <span><i class="fas fa-ruler"></i> <strong>${item.sqft}</strong> Sq.Ft</span>
+                <span><i class="fas fa-vector-square"></i> GPA: <strong>${item.gpa || 'N/A'}</strong></span>
+                <span><i class="fas fa-bed"></i> Beds: <strong>${item.bedrooms}</strong></span>
+                <span><i class="fas fa-bath"></i> Baths: <strong>${item.bathrooms}</strong></span>
+                <span><i class="fas fa-utensils"></i> Kitchen: <strong>${item.kitchens}</strong></span>
+                <span><i class="fas fa-user-check"></i> Mahmoud Rabie</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a href="https://wa.me/971542955112?text=${encodeURIComponent('Hello Mr. Mahmoud Rabie, I am interested in: ' + item.title + ' (' + item.location + ') priced at ' + Number(item.price).toLocaleString() + ' AED.')}" target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i> Inquire (WhatsApp)
+              </a>
+              <button onclick="deleteProperty(${item.id})" style="background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3); color: #ff5555; padding: 0.5rem 0.8rem; border-radius: 4px; cursor: pointer;">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter Logic
+    function filterProperties(category) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (category === 'all') {
+        renderProperties(currentProperties);
+      } else {
+        const filtered = currentProperties.filter(p => p.type === category);
+        renderProperties(filtered);
+      }
+    }
+
+    // Add New Property (Sales Submission)
+    function handleNewProperty(e) {
+      e.preventDefault();
+
+      const newProp = {
+        id: Date.now(),
+        type: document.getElementById('propType').value,
+        title: document.getElementById('propTitle').value,
+        location: document.getElementById('propLocation').value,
+        price: document.getElementById('propPrice').value,
+        sqft: document.getElementById('propSqFt').value,
+        gpa: document.getElementById('propGpa').value || 'Standard',
+        bedrooms: counters.bedrooms,
+        bathrooms: counters.bathrooms,
+        kitchens: counters.kitchens,
+        image: document.getElementById('propImage').value || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80',
+        desc: document.getElementById('propDesc').value
+      };
+
+      currentProperties.unshift(newProp);
+      saveProperties(currentProperties);
+
+      alert("🎉 Property added successfully to DLD MASTER listing!");
+      document.getElementById('propertyForm').reset();
+      counters = { bedrooms: 2, bathrooms: 2, kitchens: 1 };
+      document.getElementById('val-bedrooms').innerText = 2;
+      document.getElementById('val-bathrooms').innerText = 2;
+      document.getElementById('val-kitchens').innerText = 1;
+
+      showPage('properties');
+    }
+
+    // Delete listing
+    function deleteProperty(id) {
+      if (confirm("Are you sure you want to remove this property listing?")) {
+        currentProperties = currentProperties.filter(p => p.id !== id);
+        saveProperties(currentProperties);
+        renderProperties(currentProperties);
+      }
+    }
+
+    // Initialize
+    renderProperties(currentProperties);
+  </script>
+</body>
+</html>
